@@ -17,9 +17,9 @@ function App() {
             <h2 className="App-title">Client Side Integration</h2>
             <div className="App-row">
                 <div className="App-block">
-                    <p className="App-text">
+                    <h3 className="App-text">
                         This is input which will send text to display
-                    </p>
+                    </h3>
                     <input ref={inputRef}/>
                     <button
                         onClick={updateText}

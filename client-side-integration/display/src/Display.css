@@ -5,3 +5,11 @@
   margin: 10px;
   padding: 10px;
 }
+
+.Display-text {
+  border: 1px black solid;
+  border-radius: 5px;
+  margin: 10px;
+  padding: 10px;
+
+}

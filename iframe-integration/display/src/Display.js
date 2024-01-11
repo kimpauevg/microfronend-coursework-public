@@ -8,7 +8,7 @@ function Display() {
   const listener = new BroadcastChannel('display');
 
   listener.onmessage = function (message) {
-      setDisplayText(displayText + ' ' + message);
+      setDisplayText(displayText + ' ' + message.data);
   }
 
   return (

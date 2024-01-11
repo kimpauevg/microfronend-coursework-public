@@ -8,9 +8,9 @@
     "react-scripts": "5.0.1"
   },
   "scripts": {
-    "start": "webpack serve",
-    "serve": "webpack serve dist -p 10101",
-    "build": "webpack --mode production"
+    "start": "react-scripts start",
+    "serve": "react-scripts serve",
+    "build": "react-scripts build"
   },
   "eslintConfig": {
     "extends": [

@@ -1,16 +1,15 @@
 import './App.css';
-import React, {Suspense, useState} from "react";
+import React from "react";
 import {useRef} from 'react';
 function App() {
     const inputRef = useRef(null);
-    const [displayText, setDisplayText] = useState('');
-
+    const channel = new BroadcastChannel('display');
+    channel.onmessage = function (ev) { console.log(ev); }
     function updateText() {
-        setDisplayText(displayText + ' ' + inputRef.current.value);
-        inputRef.current.value = ''
-    }
-    const Display = React.lazy(() => import('display/Display'));
+        channel.postMessage(inputRef.current.value);
 
+        inputRef.current.value = '';
+    }
 
     return (
         <div className="App">
@@ -28,9 +27,7 @@ function App() {
 
                     </button>
                 </div>
-                <Suspense fallback={<div>Loading...</div>}>
-                    {<Display displayText={displayText}/>}
-                </Suspense>
+                <iframe title="display" className="App-iframe" src="http://main-iframe.localhost/display"></iframe>
             </div>
         </div>
     );

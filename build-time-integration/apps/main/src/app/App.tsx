@@ -25,7 +25,6 @@ function App() {
             onClick={updateText}
           >
             Send to display
-
           </button>
         </div>
         <Suspense fallback={<div>Loading...</div>}>

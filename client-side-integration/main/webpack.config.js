@@ -15,7 +15,7 @@ module.exports = {
         historyApiFallback: true,
     },
     output: {
-        publicPath: "http://localhost:10100/",
+        publicPath: "http://main-csi.localhost/",
     },
     module: {
         rules: [
@@ -63,7 +63,7 @@ module.exports = {
         new ModuleFederationPlugin({
             name: "main",
             remotes: {
-                display: "display@http://localhost:10101/remoteEntry.js",
+                display: "display@http://display-csi.localhost/remoteEntry.js",
             },
         }),
         new HtmlWebpackPlugin({

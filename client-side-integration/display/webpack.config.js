@@ -15,7 +15,7 @@ module.exports = {
         historyApiFallback: true,
     },
     output: {
-        publicPath: "http://localhost:10101/",
+        publicPath: "http://display-csi.localhost/",
     },
     module: {
         rules: [

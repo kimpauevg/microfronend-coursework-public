@@ -9,6 +9,7 @@ function App() {
         setDisplayText(displayText + ' ' + inputRef.current.value);
         inputRef.current.value = ''
     }
+
     const Display = React.lazy(() => import('display/Display'));
 
 

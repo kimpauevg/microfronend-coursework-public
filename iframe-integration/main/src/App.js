@@ -4,7 +4,6 @@ import {useRef} from 'react';
 function App() {
     const inputRef = useRef(null);
     const channel = new BroadcastChannel('display');
-    channel.onmessage = function (ev) { console.log(ev); }
     function updateText() {
         channel.postMessage(inputRef.current.value);
 

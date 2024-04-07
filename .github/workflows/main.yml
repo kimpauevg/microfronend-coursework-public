@@ -1,0 +1,140 @@
+name: Build time integration
+
+on:
+  push:
+    branches: [ "master" ]
+  pull_request:
+    branches: [ "master" ]
+
+jobs:
+  test-build-time-integration:
+    runs-on: ubuntu-latest
+
+    strategy:
+      matrix:
+        node-version: [18.x]
+
+    steps:
+      - uses: actions/checkout@v3
+
+      - name: Use Node.js ${{ matrix.node-version }}
+        uses: actions/setup-node@v3
+        with:
+          node-version: ${{ matrix.node-version }}
+
+      - name: Build
+        working-directory: build-time-integration
+        run: |
+          npm install
+
+      - name: Lint Display
+        working-directory: build-time-integration
+        run: |
+          npx nx run display:lint
+      - name: Lint Main
+        working-directory: build-time-integration
+        run: |
+          npx nx run main:lint
+
+  test-client-side-integration-display:
+    runs-on: ubuntu-latest
+    defaults:
+      run:
+        working-directory: client-side-integration/display
+
+    strategy:
+      matrix:
+        node-version: [18.x]
+
+    steps:
+      - uses: actions/checkout@v3
+
+      - name: Use Node.js ${{ matrix.node-version }}
+        uses: actions/setup-node@v3
+        with:
+          node-version: ${{ matrix.node-version }}
+
+      - name: Build
+        run: |
+          npm install
+
+      - name: Lint
+        run: |
+          npx eslint src
+  test-client-side-integration-main:
+    runs-on: ubuntu-latest
+    defaults:
+      run:
+        working-directory: client-side-integration/main
+
+    strategy:
+      matrix:
+        node-version: [18.x]
+
+    steps:
+      - uses: actions/checkout@v3
+
+      - name: Use Node.js ${{ matrix.node-version }}
+        uses: actions/setup-node@v3
+        with:
+          node-version: ${{ matrix.node-version }}
+
+      - name: Build
+        run: |
+          npm install
+
+      - name: Lint
+        run: |
+          npx eslint src
+
+  test-iframe-integration-main:
+    runs-on: ubuntu-latest
+    defaults:
+      run:
+        working-directory: iframe-integration/main
+
+    strategy:
+      matrix:
+        node-version: [18.x]
+
+    steps:
+      - uses: actions/checkout@v3
+
+      - name: Use Node.js ${{ matrix.node-version }}
+        uses: actions/setup-node@v3
+        with:
+          node-version: ${{ matrix.node-version }}
+
+      - name: Build
+        run: |
+          npm install
+
+      - name: Lint
+        run: |
+          npx eslint src
+
+  test-iframe-integration-display:
+    runs-on: ubuntu-latest
+    defaults:
+      run:
+        working-directory: iframe-integration/display
+
+    strategy:
+      matrix:
+        node-version: [18.x]
+
+    steps:
+      - uses: actions/checkout@v3
+
+      - name: Use Node.js ${{ matrix.node-version }}
+        uses: actions/setup-node@v3
+        with:
+          node-version: ${{ matrix.node-version }}
+
+      - name: Build
+        run: |
+          npm install
+
+      - name: Lint
+        run: |
+          npx eslint src

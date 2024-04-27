@@ -6,7 +6,7 @@ services:
   nginx:
     build: ./docker-compose/nginx/
     ports:
-      - 8081:80
+      - 8080:80
     links:
       - display
       - main
@@ -19,7 +19,7 @@ services:
     build:
       context: ./display
     ports:
-      - 10101:10101
+      - 10401:10401
     volumes:
       - ${WORKDIR}:${WORKDIR}
     networks:
@@ -29,7 +29,7 @@ services:
     build:
       context: ./main
     ports:
-      - 10100:10100
+      - 10400:10400
     volumes:
       - ${WORKDIR}:${WORKDIR}
     networks:

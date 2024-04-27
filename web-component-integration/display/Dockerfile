@@ -1,12 +1,12 @@
 FROM node:alpine
 
-WORKDIR /var/www/microfrontend-coursework/client-side-integration/display
+WORKDIR /var/www/microfrontend-coursework/web-component-integration/display
 
 COPY public public
 COPY src src
 COPY package.json package.json
 COPY package-lock.json package-lock.json
-COPY webpack.config.js webpack.config.js
+COPY .env.example .env.local
 
 RUN npm install
 

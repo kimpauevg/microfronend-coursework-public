@@ -1,1 +1,0 @@
-"use strict";(self.webpackChunkdisplay=self.webpackChunkdisplay||[]).push([[581],{581:(e,t,s)=>{s.r(t),s.d(t,{default:()=>n});var a=s(822),l=s.n(a);const n=function(e){let{displayText:t="test"}=e;return l().createElement("div",{className:"Display-block"},l().createElement("h3",null,"This is a remote display component"),l().createElement("div",{className:"Display-text"},t))}}}]);

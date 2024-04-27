@@ -14,7 +14,7 @@ function App() {
 
   return (
     <div className="App">
-      <h2 className="App-title">Client Side Integration</h2>
+      <h2 className="App-title">Build Time Integration</h2>
       <div className="App-row">
         <div className="App-block">
           <h3 className="App-text">

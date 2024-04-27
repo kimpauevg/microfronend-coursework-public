@@ -15,7 +15,7 @@ module.exports = {
         historyApiFallback: true,
     },
     output: {
-        publicPath: "http://display-csi.localhost/",
+        publicPath: "http://v2446558.hosted-by-vdsina.ru:11101/",
     },
     module: {
         rules: [

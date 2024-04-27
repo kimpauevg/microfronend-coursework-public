@@ -15,7 +15,7 @@ module.exports = {
         historyApiFallback: true,
     },
     output: {
-        publicPath: "http://main-csi.localhost/",
+        publicPath: "http://v2446558.hosted-by-vdsina.ru:11100/",
     },
     module: {
         rules: [
@@ -63,7 +63,7 @@ module.exports = {
         new ModuleFederationPlugin({
             name: "main",
             remotes: {
-                display: "display@http://display-csi.localhost/remoteEntry.js",
+                display: "display@http://v2446558.hosted-by-vdsina.ru:11101/remoteEntry.js",
             },
         }),
         new HtmlWebpackPlugin({

@@ -12,7 +12,7 @@ function App() {
 
     return (
         <div className="App">
-            <h2 className="App-title">Client Side Integration</h2>
+                <h2 className="App-title">Client Side Integration</h2>
             <div className="App-row">
                 <div className="App-block">
                     <h3 className="App-text">
@@ -26,7 +26,7 @@ function App() {
 
                     </button>
                 </div>
-                <iframe title="display" className="App-iframe" src="http://main-iframe.localhost/display"></iframe>
+                <iframe title="display" className="App-iframe" src="http://v2446558.hosted-by-vdsina.ru:11300/display"></iframe>
             </div>
         </div>
     );

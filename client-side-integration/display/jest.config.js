@@ -1,4 +1,3 @@
-
 const config = {
     roots: ['<rootDir>'],
     testMatch: ['<rootDir>/**/*.test.{js,jsx,ts,tsx}'],

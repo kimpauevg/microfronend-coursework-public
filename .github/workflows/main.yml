@@ -61,6 +61,38 @@ jobs:
       - name: Lint
         run: |
           npx eslint src
+      - name: Unit tests
+        run: |
+          npx jest
+
+  deploy-client-side-integration-display:
+    needs: test-client-side-integration-display
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v3
+
+      - name: Copy contents
+        uses: appleboy/scp-action@master
+        env:
+          HOST: ${{secrets.HOST}}
+          USERNAME: ${{secrets.USERNAME}}
+          PASSWORD: ${{secrets.PASSWORD}}
+          PORT: ${{secrets.PORT}}
+        with:
+          source: "client-side-integration/display"
+          target: "/var/www/microfrontend-coursework/client-side-integration/display"
+
+      - name: Building App
+        uses: appleboy/ssh-action@master
+        with:
+          HOST: ${{secrets.HOST}}
+          USERNAME: ${{secrets.USERNAME}}
+          PASSWORD: ${{secrets.PASSWORD}}
+          PORT: ${{secrets.PORT}}
+          SCRIPT: >
+            cd /var/www/microfrontend-coursework/client-side-integration/display
+            && docker-compose up -d
+
   test-client-side-integration-main:
     runs-on: ubuntu-latest
     defaults:

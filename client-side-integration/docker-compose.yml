@@ -1,0 +1,36 @@
+networks:
+  node:
+    driver: bridge
+
+services:
+  nginx:
+    build: ./docker-compose/nginx/
+    ports:
+      - 8080:80
+    links:
+      - display
+      - main
+    volumes:
+      - ${WORKDIR}:${WORKDIR}
+    networks:
+      - node
+
+  display:
+    build:
+      context: ./docker-compose/display
+    ports:
+      - 10101:10101
+    volumes:
+      - ${WORKDIR}:${WORKDIR}
+    networks:
+      - node
+
+  main:
+    build:
+      context: ./docker-compose/main
+    ports:
+      - 10100:10100
+    volumes:
+      - ${WORKDIR}:${WORKDIR}
+    networks:
+      - node
